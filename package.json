@@ -11,6 +11,14 @@
   ],
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yesmeck/react-full-viewport.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yesmeck/react-full-viewport/issues"
+  },
+  "homepage": "https://github.com/yesmeck/react-full-viewport#readme",
   "scripts": {
     "clean": "rimraf lib esm",
     "prebuild": "npm run clean",
