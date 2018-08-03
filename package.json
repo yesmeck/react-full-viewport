@@ -2,12 +2,12 @@
   "name": "react-full-viewport",
   "version": "0.0.2",
   "description": "A React component that sets its children to full viewport.",
-  "main": "lib/index.js",
-  "module": "esm/index.js",
+  "main": "dist/react-full-viewport.cjs.js",
+  "module": "dist/react-full-viewport.esm.js",
+  "browser": "dist/react-full-viewport.umd.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "esm"
+    "dist"
   ],
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "license": "MIT",
@@ -20,11 +20,9 @@
   },
   "homepage": "https://github.com/yesmeck/react-full-viewport#readme",
   "scripts": {
-    "clean": "rimraf lib esm",
+    "clean": "rimraf lib dist",
     "prebuild": "npm run clean",
-    "build": "npm run build:lib && npm run build:esm",
-    "build:lib": "tsc",
-    "build:esm": "tsc --module es6 --outDir esm",
+    "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
@@ -39,7 +37,6 @@
     "@types/react": "^16.4.7",
     "@types/storybook__react": "^3.0.8",
     "awesome-typescript-loader": "^5.2.0",
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "husky": "^0.14.3",
@@ -47,6 +44,9 @@
     "prettier": "^1.14.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "rollup": "^0.63.5",
+    "rollup-plugin-typescript2": "^0.16.1",
+    "rollup-plugin-uglify": "^4.0.0",
     "standard-version": "^4.4.0",
     "typescript": "^3.0.1"
   },
