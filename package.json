@@ -1,6 +1,6 @@
 {
   "name": "react-full-viewport",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A React component that sets its children to full viewport.",
   "main": "dist/react-full-viewport.cjs.js",
   "module": "dist/react-full-viewport.esm.js",
