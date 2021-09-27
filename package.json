@@ -5,7 +5,7 @@
   "main": "dist/react-full-viewport.cjs.js",
   "module": "dist/react-full-viewport.esm.js",
   "browser": "dist/react-full-viewport.umd.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
