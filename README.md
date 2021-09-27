@@ -11,6 +11,8 @@ $ yarn add react-full-viewport
 ## Usage
 
 ```javascript
+import FullViewport from 'react-full-viewport';
+
 <FullViewport>
   {({ toggle, isFull, style }) => (
     <div style={style}>
