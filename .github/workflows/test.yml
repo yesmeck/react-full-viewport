@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+        
+      - name: Test
+        run: yarn test --coverage
+        
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
