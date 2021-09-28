@@ -1,15 +1,6 @@
 import * as React from 'react';
 import getScrollBarSize from './getScrollBarSize';
 
-const fullViewportStyle = {
-  position: 'fixed',
-  zIndex: 1000,
-  width: '100%',
-  height: '100%',
-  top: 0,
-  left: 0,
-};
-
 interface FullViewportArgs {
   enter: () => void;
   exit: () => void;
@@ -19,6 +10,7 @@ interface FullViewportArgs {
 }
 
 interface FullViewportProps {
+  zIndex?: number;
   children?: (args: FullViewportArgs) => React.ReactNode;
   render?: (args: FullViewportArgs) => React.ReactNode;
 }
@@ -83,6 +75,18 @@ export default class FullViewport extends React.Component<
     document.body.style.paddingRight = this.originalPaddingRight!;
   };
 
+  getFullViewportStyle = () => {
+    const { zIndex } = this.props;
+    return {
+      position: 'fixed',
+      zIndex: zIndex ?? 1000,
+      width: '100%',
+      height: '100%',
+      top: 0,
+      left: 0,
+    };
+  };
+
   enter = () => {
     this.setState({ isFull: true });
   };
@@ -97,7 +101,7 @@ export default class FullViewport extends React.Component<
 
   getArgs = () => {
     const { isFull } = this.state;
-    const style = isFull ? fullViewportStyle : {};
+    const style = isFull ? this.getFullViewportStyle() : {};
     return {
       enter: this.enter,
       exit: this.exit,
